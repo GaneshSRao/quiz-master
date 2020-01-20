@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_multiple_answers_selected</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL( Question_Type__c ,&quot;Single-Select&quot;) 
+&amp;&amp;
+IF(IF(INCLUDES(Identify_Correct_Answer__c, &quot;Answer1&quot;),1,0)+
+IF(INCLUDES(Identify_Correct_Answer__c, &quot;Answer2&quot;),1,0)+
+IF(INCLUDES(Identify_Correct_Answer__c, &quot;Answer3&quot;),1,0)+
+IF(INCLUDES(Identify_Correct_Answer__c, &quot;Answer4&quot;),1,0)+
+IF(INCLUDES(Identify_Correct_Answer__c, &quot;Answer5&quot;),1,0) &gt; 1,true,false)</errorConditionFormula>
+    <errorMessage>Identify Correct Answer cannot have multiple values when Question Type is Single-Select</errorMessage>
+</ValidationRule>
