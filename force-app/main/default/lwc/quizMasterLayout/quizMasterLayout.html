@@ -1,7 +1,7 @@
 <template>
-    <lightning-card
-        title="Quiz Master"
-        icon-name="standard:product_consumed"
-    >
-    </lightning-card>
+  <lightning-card title="Parent Layout Component" icon-name="standard:product_consumed">
+    <template if:true={questionRecord.data}>
+      <c-question-card question={question}> </c-question-card>
+    </template>
+  </lightning-card>
 </template>

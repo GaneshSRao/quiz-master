@@ -5,6 +5,9 @@
         "paths": {
             "c/quizMasterLayout": [
                 "quizMasterLayout/quizMasterLayout.js"
+            ],
+            "c/questionCard": [
+                "questionCard/questionCard.js"
             ]
         }
     },
