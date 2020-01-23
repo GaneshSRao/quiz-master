@@ -1,5 +1,5 @@
 ## Clone Quiz Master repository
-git clone https://github.com/GaneshSRao/quiz-master.git
+git clone https://<span></span>github.com/GaneshSRao/quiz-master.git  <br/>
 cd quiz-master
 
 ## Authorise a dev hub
