@@ -1,0 +1,13 @@
+.lgc-bg-question {
+    background-color: rgb(243, 242, 242);
+    border-radius: 0.4em;
+}
+.lgc-bg-option {
+    padding: 0.5em;
+    background-color: rgb(243, 242, 242);
+    border-radius: 0.4em;
+    cursor: pointer;
+}
+.lgc-bg-option:hover {
+    background: rgb(205, 216, 235);
+}
