@@ -1,8 +1,139 @@
 <template>
-  <lightning-layout vertical-align="left" horizontal-align="left">
-    <lightning-layout-item padding="around-small">
-      <div class="slds-align--absolute-center"></div>
-        {question}
-    </lightning-layout-item>
-  </lightning-layout>
+  <div class="slds-p-around_medium">
+    <div class="slds-m-around_xx-small slds-p-around_small lgc-bg-question">
+      <p class="slds-text-heading_small" title={question}>{question}</p>
+    </div>
+    <template if:true={isSingleSelect}>
+      <div class="slds-m-around_xx-small lgc-bg-option">
+        <p>
+          <input
+            type="radio"
+            name="options"
+            value="Answer1"
+            onclick={handleRadioOptionsClick}
+          />&emsp;{answer1}
+        </p>
+      </div>
+      <div class="slds-m-around_xx-small lgc-bg-option">
+        <p>
+          <input
+            type="radio"
+            name="options"
+            value="Answer2"
+            onclick={handleRadioOptionsClick}
+          />&emsp;{answer2}
+        </p>
+      </div>
+      <div class="slds-m-around_xx-small lgc-bg-option">
+        <p>
+          <input
+            type="radio"
+            name="options"
+            value="Answer3"
+            onclick={handleRadioOptionsClick}
+          />&emsp;{answer3}
+        </p>
+      </div>
+      <div class="slds-m-around_xx-small lgc-bg-option">
+        <p>
+          <input
+            type="radio"
+            name="options"
+            value="Answer4"
+            onclick={handleRadioOptionsClick}
+          />&emsp;{answer4}
+        </p>
+      </div>
+      <template if:true={answer5}>
+        <div class="slds-m-around_xx-small lgc-bg-option">
+          <p>
+            <input
+              type="radio"
+              name="options"
+              value="Answer5"
+              onclick={handleRadioOptionsClick}
+            />&emsp;{answer5}
+          </p>
+        </div>
+      </template>
+    </template>
+
+    <template if:false={isSingleSelect}>
+      <div class="slds-m-around_xx-small lgc-bg-option">
+        <p>
+          <input
+            type="checkbox"
+            name="options"
+            value="Answer1"
+            onclick={handleCheckboxOptionsClick}
+          />&emsp;{answer1}
+        </p>
+      </div>
+      <div class="slds-m-around_xx-small lgc-bg-option">
+        <p>
+          <input
+            type="checkbox"
+            name="options"
+            value="Answer2"
+            onclick={handleCheckboxOptionsClick}
+          />&emsp;{answer2}
+        </p>
+      </div>
+      <div class="slds-m-around_xx-small lgc-bg-option">
+        <p>
+          <input
+            type="checkbox"
+            name="options"
+            value="Answer3"
+            onclick={handleCheckboxOptionsClick}
+          />&emsp;{answer3}
+        </p>
+      </div>
+      <div class="slds-m-around_xx-small lgc-bg-option">
+        <p>
+          <input
+            type="checkbox"
+            name="options"
+            value="Answer4"
+            onclick={handleCheckboxOptionsClick}
+          />&emsp;{answer4}
+        </p>
+      </div>
+      <template if:true={answer5}>
+        <div class="slds-m-around_xx-small lgc-bg-option">
+          <p>
+            <input
+              type="checkbox"
+              name="options"
+              value="Answer5"
+              onclick={handleCheckboxOptionsClick}
+            />&emsp;{answer5}
+          </p>
+        </div>
+      </template>
+    </template>
+    <div class="slds-m-around_xx-small">
+      <lightning-layout horizontal-align="end">
+        <lightning-button
+          label="Previous"
+          title="Previous"
+          onclick={handlePreviousClick}
+          class="slds-m-left_x-small"
+        ></lightning-button>
+        <lightning-button
+          label="Next"
+          title="Next"
+          onclick={handleNextClick}
+          class="slds-m-left_x-small"
+        ></lightning-button>
+        <lightning-button
+          label="Check"
+          title="Check"
+          onclick={handleSubmitClick}
+          variant="brand"
+          class="slds-m-left_x-small"
+        ></lightning-button>
+      </lightning-layout>
+    </div>
+  </div>
 </template>

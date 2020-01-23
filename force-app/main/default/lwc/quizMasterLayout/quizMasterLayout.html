@@ -1,7 +1,20 @@
 <template>
-  <lightning-card title="Parent Layout Component" icon-name="standard:product_consumed">
+  <lightning-card
+    title="Parent Component (Layout)"
+    icon-name="standard:product_consumed"
+  >
     <template if:true={questionRecord.data}>
-      <c-question-card question={question}> </c-question-card>
+      <c-question-card
+        question={question}
+        answer1={answer1}
+        answer2={answer2}
+        answer3={answer3}
+        answer4={answer4}
+        answer5={answer5}
+        questiontype={questiontype}
+        identifycorrectanswer={identifycorrectanswer}
+      >
+      </c-question-card>
     </template>
   </lightning-card>
 </template>
