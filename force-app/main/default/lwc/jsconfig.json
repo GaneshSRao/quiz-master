@@ -3,11 +3,11 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c/quizMasterLayout": [
-                "quizMasterLayout/quizMasterLayout.js"
-            ],
             "c/questionCard": [
                 "questionCard/questionCard.js"
+            ],
+            "c/quizMasterLayout": [
+                "quizMasterLayout/quizMasterLayout.js"
             ]
         }
     },
