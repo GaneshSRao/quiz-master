@@ -154,6 +154,10 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
+        <tab>Quiz_Master</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>Quiz__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>

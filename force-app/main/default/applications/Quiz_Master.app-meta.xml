@@ -13,6 +13,7 @@
     <navType>Standard</navType>
     <tabs>Quiz__c</tabs>
     <tabs>Question__c</tabs>
+    <tabs>Quiz_Master</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Quiz_Master_UtilityBar</utilityBar>
 </CustomApplication>
