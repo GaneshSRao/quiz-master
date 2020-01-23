@@ -11,7 +11,7 @@ import QUESTION_TYPE from '@salesforce/schema/Question__c.Question_Type__c';
 
 
 export default class QuizMasterLayout extends LightningElement {
-    @wire(getRecord, { recordId: 'a006D000002Wk0lQAC', fields: [QUESTION_FIELD,ANSWER1,ANSWER2,ANSWER3,ANSWER4,IDENTIFY_CORRECT_ANSWER,QUESTION_TYPE], optionalFields: [ANSWER5] })
+    @wire(getRecord, { recordId: 'a006D000002NlgfQAC', fields: [QUESTION_FIELD,ANSWER1,ANSWER2,ANSWER3,ANSWER4,IDENTIFY_CORRECT_ANSWER,QUESTION_TYPE], optionalFields: [ANSWER5] })
     questionRecord;
 
      get question() {
