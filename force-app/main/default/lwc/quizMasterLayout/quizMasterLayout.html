@@ -4,18 +4,20 @@
     icon-name="standard:product_consumed"
   >
     <template if:true={questionRecord.data}>
-      <c-question-card
-        question={question}
-        answer1={answer1}
-        answer2={answer2}
-        answer3={answer3}
-        answer4={answer4}
-        answer5={answer5}
-        questiontype={questiontype}
-        identifycorrectanswer={identifycorrectanswer}
-        onnext={handleNextClick}
-      >
-      </c-question-card>
+      <template if:true={currentQuestion}>
+        <c-question-card
+          question={currentQuestion.Question__c}
+          answer1={currentQuestion.Answer1__c}
+          answer2={currentQuestion.Answer2__c}
+          answer3={currentQuestion.Answer3__c}
+          answer4={currentQuestion.Answer4__c}
+          answer5={currentQuestion.Answer5__c}
+          questiontype={currentQuestion.Question_Type__c}
+          identifycorrectanswer={currentQuestion.Identify_Correct_Answer__c}
+          onnext={handleNextClick}
+        >
+        </c-question-card>
+      </template>
     </template>
   </lightning-card>
 </template>

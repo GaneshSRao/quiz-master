@@ -17,6 +17,9 @@ export default class QuestionCard extends LightningElement {
     return this.questiontype === "Single-Select";
   }
 
+  renderedCallback(){
+    this.selectedAnswer = [];
+  }
   handleSubmitClick() {
     if (
       this.selectedAnswer[0] === this.identifycorrectanswer ||
