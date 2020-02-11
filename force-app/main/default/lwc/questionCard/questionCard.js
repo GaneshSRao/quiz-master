@@ -69,6 +69,6 @@ export default class QuestionCard extends LightningElement {
     }
   }
   handleNextClick(){
-    this.dispatchEvent(new Event("next"));
+    this.dispatchEvent(new CustomEvent("next"));
   }
 }
