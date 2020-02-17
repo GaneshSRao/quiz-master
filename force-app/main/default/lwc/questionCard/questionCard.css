@@ -11,3 +11,6 @@
 .lgc-bg-option:hover {
     background: rgb(205, 216, 235);
 }
+.success {
+    background-color: rgb(66, 218, 66);
+}

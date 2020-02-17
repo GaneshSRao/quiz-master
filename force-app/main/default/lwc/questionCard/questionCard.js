@@ -3,28 +3,67 @@ import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 export default class QuestionCard extends LightningElement {
   @api question;
-  @api answer1;
-  @api answer2;
-  @api answer3;
-  @api answer4;
-  @api answer5;
-  @api identifycorrectanswer;
-  @api questiontype;
 
+  @track questionType;
+  @track identifyCorrectAnswer;
   @track selectedAnswer = [];
 
-  get isSingleSelect() {
-    return this.questiontype === "Single-Select";
+  get options() {
+    return [
+      {
+        styleClass: "slds-m-around_xx-small lgc-bg-option",
+        type: this.questionType === "Single-Select" ? "radio" : "checkbox",
+        checked: false,
+        name: "options",
+        value: "Answer1",
+        label: this.question.Answer1__c
+      },
+      {
+        styleClass: "slds-m-around_xx-small lgc-bg-option",
+        type: this.questionType === "Single-Select" ? "radio" : "checkbox",
+        checked: false,
+        name: "options",
+        value: "Answer2",
+        label: this.question.Answer2__c
+      },
+      {
+        styleClass: "slds-m-around_xx-small lgc-bg-option",
+        type: this.questionType === "Single-Select" ? "radio" : "checkbox",
+        checked: false,
+        name: "options",
+        value: "Answer3",
+        label: this.question.Answer3__c
+      },
+      {
+        styleClass: "slds-m-around_xx-small lgc-bg-option",
+        type: this.questionType === "Single-Select" ? "radio" : "checkbox",
+        checked: false,
+        name: "options",
+        value: "Answer4",
+        label: this.question.Answer4__c
+      },
+      {
+        styleClass: "slds-m-around_xx-small lgc-bg-option",
+        type: this.questionType === "Single-Select" ? "radio" : "checkbox",
+        checked: false,
+        name: "options",
+        value: "Answer5",
+        label: this.question.Answer5__c
+      }
+    ];
   }
 
-  renderedCallback(){
+  renderedCallback() {
     this.selectedAnswer = [];
+    this.identifyCorrectAnswer = this.question.Identify_Correct_Answer__c;
+    this.questionType = this.question.Question_Type__c;
   }
+
   handleSubmitClick() {
     if (
-      this.selectedAnswer[0] === this.identifycorrectanswer ||
+      this.selectedAnswer[0] === this.identifyCorrectAnswer ||
       this.selectedAnswer.sort().toString() ===
-        this.identifycorrectanswer
+        this.identifyCorrectAnswer
           .split(";")
           .sort()
           .toString()
@@ -37,7 +76,7 @@ export default class QuestionCard extends LightningElement {
       this.dispatchEvent(evt);
     } else if (
       this.selectedAnswer.length !==
-      this.identifycorrectanswer.split(";").length
+      this.identifyCorrectAnswer.split(";").length
     ) {
       const evt = new ShowToastEvent({
         title: "",
@@ -55,20 +94,21 @@ export default class QuestionCard extends LightningElement {
     }
   }
 
-  handleRadioOptionsClick(event) {
-    this.selectedAnswer[0] = event.target.value;
-  }
-
-  handleCheckboxOptionsClick(event) {
-    if (event.target.checked) {
-      this.selectedAnswer.push(event.target.value);
-    } else {
-      this.selectedAnswer = this.selectedAnswer.filter(
-        value => value !== event.target.value
-      );
+  handleOptionsClick(event) {
+    if(this.questionType === "Single-Select"){
+      this.selectedAnswer[0] = event.target.value;
+    }else{
+      if (event.target.checked) {
+        this.selectedAnswer.push(event.target.value);
+      } else {
+        this.selectedAnswer = this.selectedAnswer.filter(
+          value => value !== event.target.value
+        );
+      }
     }
   }
-  handleNextClick(){
+
+  handleNextClick() {
     this.dispatchEvent(new CustomEvent("next"));
   }
 }

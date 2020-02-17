@@ -1,118 +1,29 @@
 <template>
   <div class="slds-p-around_medium">
     <div class="slds-m-around_xx-small slds-p-around_small lgc-bg-question">
-      <p class="slds-text-heading_small" title={question}>{question}</p>
+      <p class="slds-text-heading_small" title={question.Question__c}>
+        {question.Question__c}
+      </p>
     </div>
-    <template if:true={isSingleSelect}>
-      <div class="slds-m-around_xx-small lgc-bg-option">
-        <p>
-          <input
-            type="radio"
-            name="options"
-            value="Answer1"
-            onclick={handleRadioOptionsClick}
-            />&emsp;{answer1}
-        </p>
-      </div>
-      <div class="slds-m-around_xx-small lgc-bg-option">
-        <p>
-          <input
-            type="radio"
-            name="options"
-            value="Answer2"
-            onclick={handleRadioOptionsClick}
-          />&emsp;{answer2}
-        </p>
-      </div>
-      <div class="slds-m-around_xx-small lgc-bg-option">
-        <p>
-          <input
-            type="radio"
-            name="options"
-            value="Answer3"
-            onclick={handleRadioOptionsClick}
-          />&emsp;{answer3}
-        </p>
-      </div>
-      <div class="slds-m-around_xx-small lgc-bg-option">
-        <p>
-          <input
-            type="radio"
-            name="options"
-            value="Answer4"
-            onclick={handleRadioOptionsClick}
-          />&emsp;{answer4}
-        </p>
-      </div>
-      <template if:true={answer5}>
-        <div class="slds-m-around_xx-small lgc-bg-option">
-          <p>
-            <input
-              type="radio"
-              name="options"
-              value="Answer5"
-              onclick={handleRadioOptionsClick}
-            />&emsp;{answer5}
-          </p>
-        </div>
+    <template if:true={options}>
+      <template for:each={options} for:item="option">
+        <template if:true={option.label}>
+          <div class={option.styleClass} key={option.value}>
+            <p>
+              <input
+                type={option.type}
+                checked={option.checked}
+                name={option.name}
+                value={option.value}
+                onclick={handleOptionsClick}
+              />&emsp;{option.label}
+            </p>
+          </div>
+        </template>
       </template>
     </template>
 
-    <template if:false={isSingleSelect}>
-      <div class="slds-m-around_xx-small lgc-bg-option">
-        <p>
-          <input
-            type="checkbox"
-            name="options"
-            value="Answer1"
-            onclick={handleCheckboxOptionsClick}
-          />&emsp;{answer1}
-        </p>
-      </div>
-      <div class="slds-m-around_xx-small lgc-bg-option">
-        <p>
-          <input
-            type="checkbox"
-            name="options"
-            value="Answer2"
-            onclick={handleCheckboxOptionsClick}
-          />&emsp;{answer2}
-        </p>
-      </div>
-      <div class="slds-m-around_xx-small lgc-bg-option">
-        <p>
-          <input
-            type="checkbox"
-            name="options"
-            value="Answer3"
-            onclick={handleCheckboxOptionsClick}
-          />&emsp;{answer3}
-        </p>
-      </div>
-      <div class="slds-m-around_xx-small lgc-bg-option">
-        <p>
-          <input
-            type="checkbox"
-            name="options"
-            value="Answer4"
-            onclick={handleCheckboxOptionsClick}
-          />&emsp;{answer4}
-        </p>
-      </div>
-      <template if:true={answer5}>
-        <div class="slds-m-around_xx-small lgc-bg-option">
-          <p>
-            <input
-              type="checkbox"
-              name="options"
-              value="Answer5"
-              onclick={handleCheckboxOptionsClick}
-            />&emsp;{answer5}
-          </p>
-        </div>
-      </template>
-    </template>
-    <div class="slds-m-around_xx-small">
+    <div class="slds-m-around_small">
       <lightning-layout horizontal-align="end">
         <lightning-button
           label="Previous"

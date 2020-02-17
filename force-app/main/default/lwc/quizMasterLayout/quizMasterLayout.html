@@ -4,14 +4,7 @@
       <template if:true={questionRecord.data}>
         <template if:true={currentQuestion}>
           <c-question-card
-            question={currentQuestion.Question__c}
-            answer1={currentQuestion.Answer1__c}
-            answer2={currentQuestion.Answer2__c}
-            answer3={currentQuestion.Answer3__c}
-            answer4={currentQuestion.Answer4__c}
-            answer5={currentQuestion.Answer5__c}
-            questiontype={currentQuestion.Question_Type__c}
-            identifycorrectanswer={currentQuestion.Identify_Correct_Answer__c}
+            question={currentQuestion}
             onnext={handleNextClick}
           >
           </c-question-card>
